@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; img-src 'self' data:; style-src 'self' 'unsafe-inline';">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Pivot Paint Web Pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app-header">
+    <div class="brand">
+        <span class="brand-name"><span style="color: #ffc107; font-weight: bold;">BANG BRO</span> MEDIA</span>
+        <span class="brand-copyright">© 2026</span>
+    </div>
+    <div id="frame-counter">0 / 99 Frames</div>
+    <div class="header-btns">
+        <button onclick="loadLast()" class="btn-secondary">LOAD LAST</button>
+        <button onclick="saveScene()" class="btn-main" style="background: #ffc107; color: #000;">SAVE SCENE</button>
+        <button onclick="downloadAsZip()" class="btn-main" style="background: #17a2b8;">DOWNLOAD ZIP</button>
+    </div>
+</div>
+
+    <div class="main-wrapper">
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <label>COLORS</label>
+                <div class="color-palette-v">
+                    <div class="color-item active" style="background: #000000;" onclick="changeColor('#000000', this)"></div>
+                    <div class="color-item" style="background: #ff0000;" onclick="changeColor('#ff0000', this)"></div>
+                    <div class="color-item" style="background: #00ff00;" onclick="changeColor('#00ff00', this)"></div>
+                    <div class="color-item" style="background: #0000ff;" onclick="changeColor('#0000ff', this)"></div>
+                    <input type="color" id="color-picker" onchange="changeColor(this.value)">
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <label>SIZE</label>
+                <input type="range" id="brush-slider" min="1" max="50" value="5" oninput="updateBrushSize(this.value)">
+                <span id="size-num">5px</span>
+            </div>
+            
+            <div class="sidebar-section">
+                <button id="btn-grid" onclick="toggleGrid()" class="btn-side">GRID</button>
+            </div>
+        </aside>
+
+        <main id="canvas-container">
+            <canvas id="paintCanvas"></canvas>
+        </main>
+    </div>
+
+    <div class="timeline" id="timeline"></div>
+
+    <div class="controls">
+        <button id="btn-save" onclick="saveFrame()" class="btn-main">SAVE FRAME (Space)</button>
+        <button onclick="playAnimation()" class="btn-play">PLAY (Enter)</button>
+        <button onclick="deleteLastFrame()" class="btn-danger">UNDO (Ctrl+Z)</button>
+        <button onclick="clearCanvas()" class="btn-danger">RESET ALL</button>
+    </div>
+    
+    <div id="custom-cursor"></div>
+
+    <script src="js/jszip.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
