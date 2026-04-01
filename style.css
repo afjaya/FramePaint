@@ -1,94 +1,70 @@
+/* style.css - Versi Compact Fixed Screen */
 body { 
     margin: 0; background: #1a1a1a; color: #eee; 
     font-family: sans-serif; overflow: hidden; 
-    display: flex; flex-direction: column; height: 100vh;
+    display: flex; flex-direction: column; 
+    height: 100vh; /* Mengunci tinggi tepat sesuai layar agar tidak scroll */
 }
 
 #app-header { 
-    padding: 10px 20px; display: flex; justify-content: space-between; 
+    padding: 5px 15px; display: flex; justify-content: space-between; 
     align-items: center; background: #252525; border-bottom: 1px solid #333;
+    height: 50px;
 }
 
 .main-wrapper { display: flex; flex: 1; overflow: hidden; }
 
 .sidebar { 
-    width: 80px; background: #252525; border-right: 1px solid #333;
-    display: flex; flex-direction: column; align-items: center; padding: 20px 0; gap: 25px;
+    width: 65px; background: #252525; border-right: 1px solid #333;
+    display: flex; flex-direction: column; align-items: center; 
+    padding: 10px 0; gap: 15px;
 }
 
-.sidebar-section { display: flex; flex-direction: column; align-items: center; gap: 8px; width: 100%; }
-.sidebar-section label { font-size: 10px; color: #888; font-weight: bold; }
+.sidebar-section label { font-size: 9px; color: #888; font-weight: bold; }
 
-.color-palette-v { display: flex; flex-direction: column; gap: 10px; }
-.color-item { width: 30px; height: 30px; border-radius: 50%; cursor: pointer; border: 2px solid transparent; }
+.color-palette-v { display: flex; flex-direction: column; gap: 8px; }
+.color-item { width: 25px; height: 25px; border-radius: 50%; cursor: pointer; border: 2px solid transparent; }
 .color-item.active { border-color: white; box-shadow: 0 0 8px white; }
 
-#brush-slider { appearance: slider-vertical; width: 10px; height: 100px; cursor: pointer; }
+#brush-slider { appearance: slider-vertical; width: 8px; height: 80px; cursor: pointer; }
 
 #canvas-container { 
     flex: 1; display: flex; justify-content: center; align-items: center; 
     background: #111; position: relative; overflow: hidden;
+    padding: 10px;
 }
 
 canvas { 
-    background: white; 
-    border-radius: 4px; 
-    display: block; /* Pastikan tidak ada gap inline */
+    max-height: 100%; max-width: 100%; /* Menjaga canvas tetap dalam bingkai */
+    background: white; border-radius: 4px; box-shadow: 0 0 20px rgba(0,0,0,0.5);
     touch-action: none; 
-    user-select: none;
-    /* Jangan kasih padding di sini */
-}
-
-canvas.show-grid {
-    background-image: linear-gradient(#ddd 1px, transparent 1px), linear-gradient(90deg, #ddd 1px, transparent 1px);
-    background-size: 40px 40px;
 }
 
 .timeline { 
-    height: 90px; background: #252525; display: flex; 
-    overflow-x: auto; padding: 10px; gap: 10px; border-top: 1px solid #333;
+    height: 75px; background: #252525; display: flex; 
+    overflow-x: auto; padding: 5px; gap: 8px; border-top: 1px solid #333;
 }
 
-.frame-thumb { 
-    width: 100px; height: 75px; background: white; border: 2px solid #444; 
-    flex-shrink: 0; border-radius: 4px; overflow: hidden;
+.frame-thumb { width: 80px; height: 60px; background: white; flex-shrink: 0; border-radius: 4px; }
+
+.controls { 
+    padding: 10px; display: flex; justify-content: center; 
+    gap: 10px; background: #1a1a1a; height: 55px;
 }
 
-.controls { padding: 15px; display: flex; justify-content: center; gap: 10px; background: #1a1a1a; }
-
-button { padding: 8px 15px; border-radius: 4px; border: none; font-weight: bold; cursor: pointer; }
+button { padding: 5px 12px; border-radius: 4px; border: none; font-weight: bold; cursor: pointer; font-size: 12px; }
 .btn-main { background: #28a745; color: white; }
 .btn-play { background: #007bff; color: white; }
 .btn-danger { background: #bd2130; color: white; }
 .btn-secondary { background: #6c757d; color: white; }
-.btn-side { background: #444; color: white; width: 60px; font-size: 10px; }
+.btn-side { background: #444; color: white; width: 50px; font-size: 9px; }
+
+.brand { display: flex; align-items: center; gap: 10px; font-size: 16px; }
+.brand-name { border-left: 3px solid #ffc107; padding-left: 8px; }
+.brand-copyright { font-size: 9px; color: #666; border-left: 1px solid #444; padding-left: 10px; }
 
 #custom-cursor {
     width: 5px; height: 5px; border: 1px solid white; outline: 1px solid black;
     border-radius: 50%; position: fixed; pointer-events: none;
     transform: translate(-50%, -50%); z-index: 9999; display: none;
-}
-
-.brand {
-    display: flex;
-    align-items: center;
-    gap: 15px; /* Jarak antara Nama dan Copyright */
-    font-size: 18px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
-.brand-name {
-    border-left: 3px solid #ffc107;
-    padding-left: 10px;
-}
-
-.brand-copyright {
-    font-size: 10px;
-    color: #666;
-    font-weight: normal;
-    letter-spacing: 0;
-    text-transform: none;
-    border-left: 1px solid #444; /* Garis pemisah tipis */
-    padding-left: 15px;
 }
