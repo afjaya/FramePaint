@@ -1,25 +1,24 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; img-src 'self' data:; style-src 'self' 'unsafe-inline';">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Pivot Paint Web Pro</title>
+    <title>Pivot Paint Web Pro - Bang Bro Media</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="app-header">
-    <div class="brand">
-        <span class="brand-name"><span style="color: #ffc107; font-weight: bold;">BANG BRO</span> MEDIA</span>
-        <span class="brand-copyright">© 2026</span>
+    <div id="app-header">
+        <div class="brand">
+            <span class="brand-name"><span style="color: #ffc107; font-weight: bold;">BANG BRO</span> MEDIA</span>
+            <span class="brand-copyright">© 2026</span>
+        </div>
+        <div id="frame-counter">0 / 99 Frames</div>
+        <div class="header-btns">
+            <button onclick="loadLast()" class="btn-secondary">LOAD LAST</button>
+            <button onclick="saveScene()" class="btn-main" style="background: #ffc107; color: #000;">SAVE SCENE</button>
+            <button onclick="downloadAsZip()" class="btn-main" style="background: #17a2b8;">DOWNLOAD ZIP</button>
+        </div>
     </div>
-    <div id="frame-counter">0 / 99 Frames</div>
-    <div class="header-btns">
-        <button onclick="loadLast()" class="btn-secondary">LOAD LAST</button>
-        <button onclick="saveScene()" class="btn-main" style="background: #ffc107; color: #000;">SAVE SCENE</button>
-        <button onclick="downloadAsZip()" class="btn-main" style="background: #17a2b8;">DOWNLOAD ZIP</button>
-    </div>
-</div>
 
     <div class="main-wrapper">
         <aside class="sidebar">
